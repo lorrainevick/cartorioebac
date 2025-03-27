@@ -18,10 +18,10 @@ int registro() //Função responsável por cadastrar os usuários no sistema
 	
 	strcpy(arquivo,cpf); //Responsável por copiar os valores das string
 	
-	FILE *file; //cria o arquivo
-	file = fopen(arquivo, "W"); //cria o arquivo e o "W" significa escrever
-	fprintf(file,cpf); //salva o valor da variável
-	fclose(file); //fecha o arquivo
+	FILE *file;//cria o arquivo
+	file = fopen(arquivo, "W");//cria o arquivo e o "W" significa escrever
+	fprintf(file,cpf);//salva o valor da variável
+	fclose(file);//fecha o arquivo
 	
 	file = fopen(arquivo, "a");
 	fprintf(file,",");
@@ -44,8 +44,7 @@ int registro() //Função responsável por cadastrar os usuários no sistema
 	file = fopen(arquivo, "a");
 	fprintf(file,sobrenome);
 	fclose(file);
-	
-	
+		
     file = fopen(arquivo, "a");
 	fprintf(file,",");
 	fclose(file);
@@ -128,7 +127,8 @@ int main()
 	    printf("\t1 - Cadastro de Alunos\n");
 	    printf("\t2 - Consultar Registros\n");
 	    printf("\t3 - Deletar Registros\n\n");
-	    printf("Opção: "); // fim do menu
+	    printf("\t4 - Sair do Sistema\n\n");
+	    printf("Opção: ");// fim do menu
 	
 	    scanf("%d", &opcao); // armazenamento a escolha do usuário
 	
@@ -152,8 +152,13 @@ int main()
 		    case 3: 
 		    deletar();
 		    break;
-		    
+		    		    
 		    system("cls");
+		    
+		    case 4:
+		    printf("Obrigado por usar o sistema EBAC!\n");
+		    return 0;
+		    break;
 		       
 		    default:
 		    printf("Essa opção não está disponível!\n");
